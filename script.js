@@ -11,7 +11,7 @@ async function getWeatherData(city) {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
         const data = await response.json();
-
+            console.log(data)
         currentWeather.innerHTML = `
             <h2>Current Weather in ${city}</h2>
             <p>Temperature: ${Math.round(data.main.temp - 273.15)}°C</p>
@@ -45,10 +45,13 @@ function addToHistory(city) {
 
 function fetchWeather(city) {
     try {
-        const apiUrl = `https://api.openweathermap.org/forecast?q=${city}&appid=${apiKey}`;
+       // const apiUrl = `https://api.openweathermap.org/forecast?q=${city}&appid=${apiKey}`;
+       //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+       const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 const forecastSection = document.getElementById('forecast');
                 forecastSection.innerHTML = '';
 
