@@ -22,6 +22,7 @@ h1 {
 
 }
 .container {
+    box-sizing: border-box;
     display: flex;
     gap: 35px;
     padding: 30px;
@@ -39,7 +40,7 @@ h1 button{
     color: #fff;
     display: flex;
     border-radius: 5px;
-    background-color: blueviolet;
+    background-color: rgb(31, 31, 123);
     padding: 20px 70 px 20px 20px;
     justify-content: space-between;
     width: auto;
