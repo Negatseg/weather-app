@@ -86,4 +86,4 @@ searchForm.addEventListener('submit', (e) => {
 });
 
 
-searchWeather('New York'); 
+searchWeather(' '); 
