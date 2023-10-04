@@ -31,20 +31,33 @@ h1 {
     width:550px;
 }
 h1 button{
-    display:flex;
+    display: flex;
 }
-
-
-
+.days-forecast h2 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+.weather-cards {
+    display: flex;
+    gap: 20px;
+}
+.weather-cards .card {
+    list-style: none;
+    color: #fff;
+    padding: 18px 16px;
+    border-radius: 5px;
+    background:#6C757D;
+    width: calc(100% / 5);
+}
 #current-weather {
     color: #fff;
     display: flex;
     border-radius: 5px;
-    background-color: rgb(31, 31, 123);
     padding: 20px 70 px 20px 20px;
+    background: #5372F0;
     justify-content: space-between;
-    width: auto;
 }
+
 
 header h1 {
     margin: 0;
