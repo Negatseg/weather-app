@@ -1,0 +1,94 @@
+/* Import Google font .open sans */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', 'sans Serif';
+}
+
+
+body {
+    background: #E3F2FD;
+}
+h1 {
+    color: #fff;
+    padding: 18px 0;
+    text-align: center;
+    font-size: 1.75rem;
+    background: #5372F0;
+    text-align: center;
+
+}
+.container {
+    display: flex;
+    gap: 35px;
+    padding: 30px;
+}
+#search-form {
+    width:550px;
+}
+h1 button{
+    display:flex;
+}
+
+
+
+#current-weather {
+    color: #fff;
+    display: flex;
+    border-radius: 5px;
+    background-color: blueviolet;
+    padding: 20px 70 px 20px 20px;
+    justify-content: space-between;
+    width: auto;
+}
+
+header h1 {
+    margin: 0;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004099;
+}
+
+#current-weather, #forecast, #search-history {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#history-list li {
+    margin: 5px 0;
+    cursor: pointer;
+    color: #007BFF;
+}
+
+#history-list li:hover {
+    text-decoration: underline;
+}
