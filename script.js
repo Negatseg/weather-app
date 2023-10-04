@@ -19,34 +19,13 @@ async function getWeatherData(city) {
             <p>Wind: ${data.wind.speed} M/S</h4>
             <p>Weather: ${data.weather[0].description}</p>
         `;
-                   // Call fetchWeather to get the forecast
+
+        
         fetchWeather(city);
     } catch (error) {
         console.error('Error fetching weather data:', error);
     }
 }
-        function fetchWeather(city) {
-            try {
-                const apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
-                fetch(apiUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        const forecastSection = document.getElementById('forecast');
-                        forecastSection.innerHTML = '';
-        
-                        data.list.forEach(forecast => {
-                            const forecastItem = document.createElement('div');
-                            const date = new Date(forecast.dt * 1000); // Convert UNIX timestamp to date
-                            forecastItem.textContent = `Date: ${date.toLocaleDateString()}, Temperature: ${Math.round(forecast.main.temp - 273.15)}°C, Wind: ${forecast.wind.speed} M/S, Conditions: ${forecast.weather[0].description}`;
-                            forecastSection.appendChild(forecastItem);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching forecast data:', error);
-                    });
-            } 
-        }
- 
 
 function addToHistory(city) {
     if (!searchHistory.includes(city)) {
@@ -64,7 +43,30 @@ function addToHistory(city) {
     }
 }
 
+function fetchWeather(city) {
+    try {
+        const apiUrl = `https://api.openweathermap.org/forecast?q=${city}&appid=${apiKey}`;
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const forecastSection = document.getElementById('forecast');
+                forecastSection.innerHTML = '';
 
+                
+                data.list.forEach(forecast => {
+                    const forecastItem = document.createElement('div');
+                    const date = new Date(forecast.dt * 1000); 
+                    forecastItem.textContent = `Date: ${date.toLocaleDateString()}, Temperature: ${Math.round(forecast.main.temp - 273.15)}°C, Wind: ${forecast.wind.speed} M/S, Conditions: ${forecast.weather[0].description}`;
+                    forecastSection.appendChild(forecastItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching forecast data:', error);
+            });
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+    }
+}
 
 function searchWeather(city) {
     getWeatherData(city);
@@ -80,5 +82,5 @@ searchForm.addEventListener('submit', (e) => {
     }
 });
 
-// Initial search
+
 searchWeather('New York'); 
