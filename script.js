@@ -34,7 +34,6 @@ async function getWeatherData(city) {
                         const forecastSection = document.getElementById('forecast');
                         forecastSection.innerHTML = '';
         
-
                         data.list.forEach(forecast => {
                             const forecastItem = document.createElement('div');
                             const date = new Date(forecast.dt * 1000); // Convert UNIX timestamp to date
@@ -45,9 +44,7 @@ async function getWeatherData(city) {
                     .catch(error => {
                         console.error('Error fetching forecast data:', error);
                     });
-            } catch (error) {
-                console.error('Error fetching weather data:', error);
-            }
+            } 
         }
  
 
